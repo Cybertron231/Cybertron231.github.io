@@ -24,7 +24,9 @@
   }
 
   main {
-    position:relative;
+    position:fixed;
+    top:1vw;
+    right:-2.5vw;
   }
 
   #overlay {
@@ -45,11 +47,9 @@
     overflow-x:hidden;
     width:150%;
     height:100%;
-    right:2.5vw;
     white-space: nowrap;
     position: relative;
     transform:rotate(-10deg);
-    top:-1vh;
   }
 
   .sitelogo{
