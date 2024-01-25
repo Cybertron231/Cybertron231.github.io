@@ -57,7 +57,8 @@
     animation: 15s slide infinite cubic-bezier(0.42, 0, 0.58, 1);
     justify-content: center;
     align-items: center;
-  }
+    transition: animation-timing-function 1s ease;
+    }
   
   .logos-slide img {
     width:300px;
@@ -68,6 +69,14 @@
     border-width: 3px;
     border-color:rgb(45, 45, 46);
     border-style:solid;
+    transition-duration: 0.3s;
+
+  }
+
+  .logos-slide img:hover{
+    overflow: hidden;
+    transform: scale(1.025);
+    transition-duration: 0.3s;
   }
 
   .sidebar {
@@ -83,7 +92,7 @@
     align-items: flex-end;
     overflow:hidden;
 
-    transition: right 1s ease; /* Use right instead of transform for smooth transition */
+    transition: right 0.7s ease; /* Use right instead of transform for smooth transition */
 
 
 
@@ -111,7 +120,8 @@
     cursor: pointer;
     width:50px;
     height:50px;
-  }
+    transition: right 0.7s ease, transform 0.7s ease;
+ }
 
   .reveal img{
     width: 100%;
@@ -137,6 +147,8 @@
     width:350px;
     cursor:pointer;
     transition-duration: 0.2s;
+    opacity: 0;
+    transition: opacity 1s ease;
 
   }
 
@@ -145,6 +157,16 @@
     0 0 30px rgba(255, 0, 0, 0.75), /* outer shadow */
     inset 0 0 30px rgba(255, 0, 0, 0.75); /* inner shadow */
     transition-duration: 0.2s;
+  }
+
+  .sidebar a{
+    width:95%;
+    align-self: center;
+  }
+  .sidebar a img{
+    width:100%;
+    margin-top: 10px;
+    border: solid white 3px;
   }
 
   @keyframes glow {
@@ -159,3 +181,14 @@
     }
   }
   
+  .latest{
+    margin-top:15px;
+    border-top:2px red solid ;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+    border-bottom:2px red solid ;
+    color:aliceblue;
+    width:100%;
+  }
