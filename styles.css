@@ -45,11 +45,11 @@
     overflow-x:hidden;
     width:150%;
     height:100%;
-    right:50px;
+    right:2.5vw;
     white-space: nowrap;
     position: relative;
     transform:rotate(-10deg);
-    top:-30px;
+    top:-1vh;
   }
 
   .sitelogo{
@@ -65,10 +65,10 @@
   }
 
   .sitelogo img{
-    height:75px;
-    width: 75px;
+    height:4vw;
+    width: 4vw;
     border-radius: 25%;
-    margin-right: 25px;
+    margin-right: 1vw;
     border-color: aliceblue;
     border-width: 2px;
     border-style: solid;
@@ -82,12 +82,15 @@
     animation: 60s slide infinite cubic-bezier(0.42, 0, 0.58, 1);
     justify-content: center;
     align-items: center;
+    height:25%;
     transition: animation-timing-function 1s ease;
-    }
+  }
+  
+  
   
   .logos-slide img {
-    width:285px;
-    height:161px;
+    width:11%;
+    height:auto;
     margin:2px;
     border-radius: 5px;
     border-width: 3px;
@@ -108,8 +111,8 @@
   .sidebar {
     position: fixed;
     transform-origin: top right;
-    right: -400px; /* Initially hidden position */
-    width: 400px;
+    right: -22%; /* Initially hidden position */
+    width: 22%;
     top:0;
     height: 100%;
     background: #333;
@@ -141,8 +144,8 @@
 
   .reveal{
     position:fixed;
-    right:20px;
-    top:20px;
+    right:1%;
+    top:2%;
     z-index: 10;
     background: none;
     border:none;
@@ -160,7 +163,7 @@
 
   .sidebar button{
     align-self: center;
-    height:75px;
+    height:8%;
     border-radius: 10px;
     background:none;
     border-color: red;
@@ -169,7 +172,7 @@
     font-size: 20px;
     font-style:italic;
     font-weight: bolder;
-    margin: 20px 20px;
+    margin: 5% 5%;
     box-shadow: 
     0 0 20px rgba(255, 0, 0, 0.75), /* outer shadow */
     inset 0 0 20px rgba(255, 0, 0, 0.75); /* inner shadow */

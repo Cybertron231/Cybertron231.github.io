@@ -73,9 +73,9 @@ document.addEventListener("DOMContentLoaded", function () {
     
     
     //document.querySelector("main").style.transform = "scale(" + scaleFactor + ")";
-    document.querySelector(".sidebar").style.transform = "scale(" + scaleFactor + ")";
-    document.querySelector(".sidebar").style.right = String(-400 * scaleFactor)+"px";
-    document.querySelector(".sitelogo").style.transform = "scale(" + scaleFactor + ")";
+    //document.querySelector(".sidebar").style.transform = "scale(" + scaleFactor + ")";
+    //document.querySelector(".sidebar").style.right = String(-400 * scaleFactor)+"px";
+    //document.querySelector(".sitelogo").style.transform = "scale(" + scaleFactor + ")";
 
     if(windowWidth<2048){
         var currentRightValue = parseFloat(getComputedStyle(document.querySelector(".logos")).right);
@@ -106,11 +106,13 @@ document.addEventListener("DOMContentLoaded", function () {
             j-=10;
         }
     }
+    /*
     const imgs = document.querySelectorAll(".logos-slide img");
     for(let i = 0; i<imgs.length; i++){
         imgs[i].style.width = 285*scaleFactor + "px";
         imgs[i].style.height = 161*scaleFactor + "px";
     }
+    */
 
     
 });
@@ -128,8 +130,8 @@ function toggleSidebar() {
 
     // Check if the sidebar is currently hidden (right: -400px)
     if (parseInt(getComputedStyle(sidebar).right) < 0) {
-      sidebar.style.right = '0';
-      reveal.style.right = String(420*scaleFactor) + "px";
+      sidebar.style.right = '0%';
+      reveal.style.right = "23%";
       reveal.style.transform = 'rotate(-180deg)';
 
       const elementsToFadeIn = document.querySelectorAll(".sidebar button");
@@ -155,8 +157,8 @@ function toggleSidebar() {
           delay += delayBetweenElements;
       });
     } else {
-      sidebar.style.right = String(-400*scaleFactor) + "px";
-      reveal.style.right = String(20*scaleFactor) + "px";
+      sidebar.style.right = "-22%";
+      reveal.style.right = "1%";
       reveal.style.transform = 'rotate(0deg)';
 
       const elementsToFadeIn = document.querySelectorAll(".sidebar button");
