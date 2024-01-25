@@ -83,6 +83,7 @@
 
   .sidebar {
     position: fixed;
+    transform-origin: top right;
     right: -400px; /* Initially hidden position */
     width: 400px;
     top:0;

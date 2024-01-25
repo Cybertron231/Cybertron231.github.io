@@ -54,11 +54,14 @@ document.addEventListener("DOMContentLoaded", function () {
     
     
     document.querySelector("main").style.transform = "scale(" + scaleFactor + ")";
+    document.querySelector(".sidebar").style.transform = "scale(" + scaleFactor + ")";
+    document.querySelector(".sidebar").style.right = String(-400 * scaleFactor)+"px";
+
     if(windowWidth<2048){
         var currentRightValue = parseFloat(getComputedStyle(document.querySelector(".logos")).right);
         let logos = document.querySelectorAll(".logos");
         for(let i = 0; i<logos.length; i++){
-            logos[i].style.right = String(currentRightValue + 2048-windowWidth)+"px";
+            logos[i].style.right = String(50 + 2048-windowWidth)+"px";
         }
     }
 
@@ -95,13 +98,15 @@ document.addEventListener("DOMContentLoaded", function () {
 function toggleSidebar() {
     var sidebar = document.querySelector(".sidebar");
     var reveal = document.querySelector(".reveal");
+    var windowWidth = screen.width;
+    var scaleFactor = windowWidth / 2048;
 
     
 
     // Check if the sidebar is currently hidden (right: -400px)
     if (parseInt(getComputedStyle(sidebar).right) < 0) {
       sidebar.style.right = '0';
-      reveal.style.right = '420px';
+      reveal.style.right = String(420*scaleFactor) + "px";
       reveal.style.transform = 'rotate(-180deg)';
 
       const elementsToFadeIn = document.querySelectorAll(".sidebar button");
@@ -127,8 +132,8 @@ function toggleSidebar() {
           delay += delayBetweenElements;
       });
     } else {
-      sidebar.style.right = '-400px';
-      reveal.style.right = '20px';
+      sidebar.style.right = String(-400*scaleFactor) + "px";
+      reveal.style.right = String(20*scaleFactor) + "px";
       reveal.style.transform = 'rotate(0deg)';
 
       const elementsToFadeIn = document.querySelectorAll(".sidebar button");
