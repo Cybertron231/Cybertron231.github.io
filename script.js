@@ -43,12 +43,6 @@ function shuffleTwoArrays(array1, array2) {
       [array2[i], array2[j]] = [array2[j], array2[i]];
     }
   }
-  
-  // Example usage:
-  let arrayA = [1, 2, 3, 4, 5];
-  let arrayB = ['a', 'b', 'c', 'd', 'e'];
-  
-  shuffleTwoArrays(arrayA, arrayB);
 
 document.addEventListener("DOMContentLoaded", function () {
 
