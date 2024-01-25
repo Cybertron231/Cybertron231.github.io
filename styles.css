@@ -188,8 +188,8 @@
 
   .sidebar button:hover{
     box-shadow: 
-    0 0 30px rgba(255, 0, 0, 0.75), /* outer shadow */
-    inset 0 0 30px rgba(255, 0, 0, 0.75); /* inner shadow */
+    0 0 3vw rgba(255, 0, 0, 0.75), /* outer shadow */
+    inset 0 0 3vw rgba(255, 0, 0, 0.75); /* inner shadow */
     transition-duration: 0.2s;
     transform:scale(1.01);
   }
