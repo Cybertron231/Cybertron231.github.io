@@ -49,6 +49,7 @@
     border-color: aliceblue;
     border-width: 2px;
     border-style: solid;
+    transform-origin: top left;
   }
 
 
@@ -65,7 +66,6 @@
     width:285px;
     height:161px;
     margin:2px;
-
     border-radius: 5px;
     border-width: 3px;
     border-color:rgb(45, 45, 46);

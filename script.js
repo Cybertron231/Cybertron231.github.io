@@ -53,10 +53,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     
     
-    document.querySelector("main").style.transform = "scale(" + scaleFactor + ")";
+    //document.querySelector("main").style.transform = "scale(" + scaleFactor + ")";
     document.querySelector(".sidebar").style.transform = "scale(" + scaleFactor + ")";
     document.querySelector(".sidebar").style.right = String(-400 * scaleFactor)+"px";
-    document.querySelector(".sitelogo").style.right = String(-400 * scaleFactor)+"px";
+    document.querySelector(".sitelogo").style.transform = "scale(" + scaleFactor + ")";
 
     if(windowWidth<2048){
         var currentRightValue = parseFloat(getComputedStyle(document.querySelector(".logos")).right);
@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
             logos[i].style.right = String(50 + 2048-windowWidth)+"px";
         }
     }
+    
 
 
     console.log(screen.width);
@@ -89,6 +90,11 @@ document.addEventListener("DOMContentLoaded", function () {
         } else{ 
             j-=10;
         }
+    }
+    const imgs = document.querySelectorAll(".logos-slide img");
+    for(let i = 0; i<imgs.length; i++){
+        imgs[i].style.width = 285*scaleFactor + "px";
+        imgs[i].style.height = 161*scaleFactor + "px";
     }
 
     
