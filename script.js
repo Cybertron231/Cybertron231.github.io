@@ -89,8 +89,6 @@ function toggleSidebar() {
       reveal.style.transform = 'rotate(-180deg)';
 
       const elementsToFadeIn = document.querySelectorAll(".sidebar button");
-
-      console.log(elementsToFadeIn);
   
       function fadeInElement(element, delay) {
           setTimeout(function () {
@@ -118,9 +116,6 @@ function toggleSidebar() {
       reveal.style.transform = 'rotate(0deg)';
 
       const elementsToFadeIn = document.querySelectorAll(".sidebar button");
-
-      console.log(elementsToFadeIn);
-
   
       function fadeInElement(element, delay) {
           setTimeout(function () {
