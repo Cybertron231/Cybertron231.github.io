@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("main").style.transform = "scale(" + scaleFactor + ")";
     document.querySelector(".sidebar").style.transform = "scale(" + scaleFactor + ")";
     document.querySelector(".sidebar").style.right = String(-400 * scaleFactor)+"px";
+    document.querySelector(".sitelogo").style.right = String(-400 * scaleFactor)+"px";
 
     if(windowWidth<2048){
         var currentRightValue = parseFloat(getComputedStyle(document.querySelector(".logos")).right);

@@ -31,6 +31,7 @@
 
   .sitelogo{
     display:flex;
+    transform-origin: top left;
     position:fixed;
     color:aliceblue;
     top:3%;
