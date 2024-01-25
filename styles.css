@@ -85,6 +85,7 @@
     position: fixed;
     right: -400px; /* Initially hidden position */
     width: 400px;
+    top:0;
     height: 100%;
     background: #333;
 
@@ -114,8 +115,9 @@
   }
 
   .reveal{
-    position:absolute;
+    position:fixed;
     right:20px;
+    top:20px;
     z-index: 10;
     background: none;
     border:none;
