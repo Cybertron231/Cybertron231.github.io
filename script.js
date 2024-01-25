@@ -47,7 +47,23 @@ function shuffleTwoArrays(array1, array2) {
 document.addEventListener("DOMContentLoaded", function () {
 
     shuffleTwoArrays(imageFilenames, imageLinks);
+    var windowWidth = screen.width;
 
+    var scaleFactor = windowWidth / 2048;
+
+    
+    
+    document.querySelector("main").style.transform = "scale(" + scaleFactor + ")";
+    if(windowWidth<2048){
+        var currentRightValue = parseFloat(getComputedStyle(document.querySelector(".logos")).right);
+        let logos = document.querySelectorAll(".logos");
+        for(let i = 0; i<logos.length; i++){
+            logos[i].style.right = String(currentRightValue + 2048-windowWidth)+"px";
+        }
+    }
+
+
+    console.log(screen.width);
       
     const imageContainer = document.querySelectorAll('.logos-slide');
 
