@@ -30,13 +30,36 @@ const imageLinks = [
 
 ]
 
+function shuffleTwoArrays(array1, array2) {
+    if (array1.length !== array2.length) {
+      throw new Error("Arrays must have the same length");
+    }
+  
+    for (let i = array1.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+  
+      // Swap elements in both arrays
+      [array1[i], array1[j]] = [array1[j], array1[i]];
+      [array2[i], array2[j]] = [array2[j], array2[i]];
+    }
+  }
+  
+  // Example usage:
+  let arrayA = [1, 2, 3, 4, 5];
+  let arrayB = ['a', 'b', 'c', 'd', 'e'];
+  
+  shuffleTwoArrays(arrayA, arrayB);
+
 document.addEventListener("DOMContentLoaded", function () {
+
+    shuffleTwoArrays(imageFilenames, imageLinks);
 
       
     const imageContainer = document.querySelectorAll('.logos-slide');
 
     // Loop through the image filenames and create img elements
     let j = 0;
+    
     for(let i = 0; i<imageContainer.length*2; i++){
         let k = j+10
         for(j; j<k&&j<imageFilenames.length; j++){
