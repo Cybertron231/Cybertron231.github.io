@@ -54,7 +54,7 @@
   
   .logos-slide {
     display: inline-block;
-    animation: 20s slide infinite cubic-bezier(0.42, 0, 0.58, 1);
+    animation: 30s slide infinite cubic-bezier(0.42, 0, 0.58, 1);
     justify-content: center;
     align-items: center;
     transition: animation-timing-function 1s ease;
