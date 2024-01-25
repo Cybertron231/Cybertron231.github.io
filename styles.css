@@ -2,10 +2,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
   }
   
   body {
     background: #f2f2f2;
+    opacity: 1;
+    overflow:hidden; 
+    position:relative; 
+    background-image: 
+    url(./icons/background.png);
   }
   
   @keyframes slide {
@@ -15,6 +21,10 @@
     to {
       transform: translateX(-50%);
     }
+  }
+
+  main {
+    position:relative;
   }
   
   .logos {

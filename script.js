@@ -65,11 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
             logos[i].style.right = String(50 + 2048-windowWidth)+"px";
         }
     }
-    
-
-
-    console.log(screen.width);
-      
+          
     const imageContainer = document.querySelectorAll('.logos-slide');
 
     // Loop through the image filenames and create img elements

@@ -1,73 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script type="text/javascript" src="./script.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-    <title>CyberHub</title>
-</head>
-<body style="overflow:hidden; position:relative; transform: scale(1); background-image: url(./icons/background.png);">
-    <div class="sitelogo">
-        <img src="./icons/BotW_Linkda.png">
-        <h1>CyberHub</h1></div>
-    </div>
-    <main>
-        <div class="logos">
-            <div class="logos-slide"></div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <script type="text/javascript" src="./script.js" defer></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+        <title>CyberHub</title>
+    </head>
+    <body>
+        <div class="sitelogo">
+            <img src="./icons/BotW_Linkda.png">
+            <h1>CyberHub</h1>
+        </div>
+        <main>
+            <div class="logos">
+                <div class="logos-slide"></div>
+            </div>
+
+            <div class="logos">
+                <div class="logos-slide"></div>
+            </div>
+
+            <div class="logos">
+                <div class="logos-slide"></div>
+            </div>
+
+            <div class="logos">
+                <div class="logos-slide"></div>
+            </div>
+
+            <div class="logos">
+                <div class="logos-slide"></div>
+            </div>
+
+
+            <div class="logos">
+                <div class="logos-slide"></div>
+            </div>
+
+            <div class="logos">
+                <div class="logos-slide"></div>
+            </div>
+        </main>
+        <button class="reveal" onclick="toggleSidebar()"><img src="./icons/1903099-200.png"></button>
+        <div class="sidebar">
+            <!-- Your sidebar content goes here -->
+            <h1>Links & more!</h1>
+            <button onclick="location.href='https://twitter.com/cybertron231'" type="button">Twitter!</button>
+            <button onclick="location.href='https://gamebanana.com/members/1994459'" type="button">GameBanana!</button>
+            <button onclick="location.href='https://discord.gg/agmg'" type="button">Discord!</button>
+            <button onclick="location.href='https://www.youtube.com/channel/UCFvzJo-NMYu4MI-ZztLiRrQ'" type="button">YouTube!</button>
+            <div class="latest">Latest work!</div>
+            <a href="https://gamebanana.com/mods/491522"><img src="https://images.gamebanana.com/img/ss/mods/65adbcd4001a2.jpg"></a>
+
         </div>
 
-        <div class="logos">
-            <div class="logos-slide"></div>
-        </div>
-
-        <div class="logos">
-            <div class="logos-slide"></div>
-        </div>
-
-        <div class="logos">
-            <div class="logos-slide"></div>
-        </div>
-
-        <div class="logos">
-            <div class="logos-slide"></div>
-        </div>
-
-
-        <div class="logos">
-            <div class="logos-slide"></div>
-        </div>
-
-        <div class="logos">
-            <div class="logos-slide"></div>
-        </div>
-    </main>
-    <button class="reveal" onclick="toggleSidebar()"><img src="./icons/1903099-200.png"></button>
-    <div class="sidebar">
-        <!-- Your sidebar content goes here -->
-        <h1>Links & more!</h1>
-        <button onclick="location.href='https://twitter.com/cybertron231'" type="button">Twitter!</button>
-        <button onclick="location.href='https://gamebanana.com/members/1994459'" type="button">GameBanana!</button>
-        <button onclick="location.href='https://discord.gg/agmg'" type="button">Discord!</button>
-        <button onclick="location.href='https://www.youtube.com/channel/UCFvzJo-NMYu4MI-ZztLiRrQ'" type="button">YouTube!</button>
-        <div class="latest">Latest work!</div>
-        <a href="https://gamebanana.com/mods/491522"><img src="https://images.gamebanana.com/img/ss/mods/65adbcd4001a2.jpg"></a>
-
-    </div>
-
-</body>
-
+    </body>
+</html>
 
 <script>
-      // Function to generate a random delay value
-  function getRandomDelay(min, max) {
-    return Math.random() * (max - min) + min;
-  }
+    // Function to generate a random delay value
+function getRandomDelay(min, max) {
+  return Math.random() * (max - min) + min;
+}
 
-  // Apply random delays to elements
-  document.querySelectorAll('.logos-slide').forEach(function(element) {
-    element.style.animationDelay = getRandomDelay(0, 10) + 's';
-  });
+// Apply random delays to elements
+document.querySelectorAll('.logos-slide').forEach(function(element) {
+  element.style.animationDelay = getRandomDelay(0, 10) + 's';
+});
 </script>
-</html>
