@@ -137,6 +137,7 @@
     text-align: center;
     font-family: 'Poppins', sans-serif;
     font-style: italic;
+    font-size: 2vw;
     text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
     border-bottom:2px red solid ;
     color:aliceblue;
@@ -151,8 +152,8 @@
     background: none;
     border:none;
     cursor: pointer;
-    width:50px;
-    height:50px;
+    width:3vw;
+    height:3vw;
     transition: right 0.7s ease, transform 0.7s ease;
  }
 
@@ -170,7 +171,7 @@
     border-color: red;
     text-shadow: 1px 1px 2px red, 0 0 1em red, 0 0 0.2em red;
     color:aliceblue;
-    font-size: 20px;
+    font-size: 1.25vw;
     font-style:italic;
     font-weight: bolder;
     margin: 5% 5%;
@@ -221,6 +222,7 @@
     text-align: center;
     font-family: 'Poppins', sans-serif;
     font-style: italic;
+    font-size: 1vw;
     text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
     border-bottom:2px red solid ;
     color:aliceblue;

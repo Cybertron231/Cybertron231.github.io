@@ -51,7 +51,7 @@ function toggleOverlay() {
         overlay.style.opacity = 0;
 
         setTimeout(function() {
-            console.log('hi');
+            console.log('This is an easter egg');
             overlay.style.display = 'none';
         }, 500); // Wait for the transition to complete (300ms in this example)
     } else {
