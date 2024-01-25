@@ -42,7 +42,26 @@ function shuffleTwoArrays(array1, array2) {
       [array1[i], array1[j]] = [array1[j], array1[i]];
       [array2[i], array2[j]] = [array2[j], array2[i]];
     }
-  }
+}
+
+function toggleOverlay() {
+    var overlay = document.getElementById('overlay');
+
+    if (overlay.style.display === 'block') {
+        overlay.style.opacity = 0;
+
+        setTimeout(function() {
+            console.log('hi');
+            overlay.style.display = 'none';
+        }, 500); // Wait for the transition to complete (300ms in this example)
+    } else {
+        overlay.style.display = 'block';
+
+        setTimeout(function() {
+            overlay.style.opacity = 0.7;
+        }, 10); // Start the transition after a short delay (10ms in this example)
+    }
+}
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -103,6 +122,7 @@ function toggleSidebar() {
     var reveal = document.querySelector(".reveal");
     var windowWidth = screen.width;
     var scaleFactor = windowWidth / 2048;
+    
 
     
 
@@ -163,6 +183,8 @@ function toggleSidebar() {
       });
 
     }
+
+    toggleOverlay();
 
       
 
