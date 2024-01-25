@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //document.querySelector(".sidebar").style.transform = "scale(" + scaleFactor + ")";
     //document.querySelector(".sidebar").style.right = String(-400 * scaleFactor)+"px";
     //document.querySelector(".sitelogo").style.transform = "scale(" + scaleFactor + ")";
-
+    /*
     if(windowWidth<2048){
         var currentRightValue = parseFloat(getComputedStyle(document.querySelector(".logos")).right);
         let logos = document.querySelectorAll(".logos");
@@ -84,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
             logos[i].style.right = String(50 + 2048-windowWidth)+"px";
         }
     }
+    */
           
     const imageContainer = document.querySelectorAll('.logos-slide');
 
