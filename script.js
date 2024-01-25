@@ -75,11 +75,6 @@ function toggleSidebar() {
 
       console.log(elementsToFadeIn);
   
-      function siteLink(altText){
-          window.location.href = imageLinks[parseInt(altText)];
-          
-      }
-  
       function fadeInElement(element, delay) {
           setTimeout(function () {
               element.style.opacity = '1';
@@ -108,11 +103,7 @@ function toggleSidebar() {
       const elementsToFadeIn = document.querySelectorAll(".sidebar button");
 
       console.log(elementsToFadeIn);
-  
-      function siteLink(altText){
-          window.location.href = imageLinks[parseInt(altText)];
-          
-      }
+
   
       function fadeInElement(element, delay) {
           setTimeout(function () {
@@ -137,8 +128,16 @@ function toggleSidebar() {
 
     }
 
+      
+
+
  
 
+}
+
+function siteLink(altText){
+    window.location.href = imageLinks[parseInt(altText)];
+    
 }
 
 

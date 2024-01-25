@@ -70,6 +70,8 @@
     border-color:rgb(45, 45, 46);
     border-style:solid;
     transition-duration: 0.3s;
+    cursor: pointer;
+
 
   }
 
