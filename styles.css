@@ -88,7 +88,51 @@
     transition: animation-timing-function 1s ease;
   }
   
-  
+  .extras{
+    display:flex;
+    transform-origin: top left;
+    position:fixed;
+    z-index: 2;
+    color:red;
+    font-weight:bold;
+    border-top: 0.15vw solid;
+    border-bottom: 0.15vw solid;
+
+    border-image: linear-gradient(to right, rgba(255,0,0,0), red 50%, rgba(255,0,0,0)) 1;
+    /* Adjust the color values and percentage stops as needed */
+    border-image-slice: 10;
+    top:12%;
+    left:3%;
+    font-size: 1vw;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .extras a:nth-child(4){
+    border-right: 0px solid;
+  }
+  .extras a{
+    text-decoration: none;
+    border-right: 0.15vw solid;
+    padding: 0.25vw;
+    color:red;
+    text-shadow: 1px 1px 2px darkred, 0 0 1em darkred, 0 0 0.2em darkred;
+
+
+    border-image: linear-gradient(to top, rgba(255,0,0,0) 30%, red 50%, rgba(255,0,0,0) 70%) 1;
+    /* Adjust the color values and percentage stops as needed */
+    border-image-slice: 10;
+    transition-duration: 0.5s;
+
+
+  }
+
+  .extras a:hover{
+    cursor:pointer;
+    text-shadow: 0 0 0 red, 0 0 1em red, 0 0 0.2em red;
+    transition-duration: 0.5s;
+
+  }
   
   .logos-slide img {
     width:15vw;
