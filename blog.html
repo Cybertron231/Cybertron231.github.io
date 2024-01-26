@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styleblog.css">
+        <script type="text/javascript" src="./script.js" defer></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+        <title>The CyberBlog</title>
+    </head>
+    <body>
+        <img src="./icons/background.png" class="background-image">
+        <div class="top">
+            <div class="sitelogo">
+                <img src="./icons/BotW_Linkda.png">
+                <h1><a href="./index.html">CyberHub</a></h1>
+            </div>
+        </div>
+        <div class="full-container" onclick="fullImage()"><img class="full-image" style="display: none;"></div>
+        <main class="article-list">
+
+        </main>
+    </body>
+</html>
+<script>
+// Fetch recent posts from the WordPress.com site
+// Replace 'YOUR_BLOG_ID' with your actual Blogger blog ID
+const blogId = '1077219881104311123';
+
+// Fetch recent posts from the Blogger API
+fetch(`https://www.googleapis.com/blogger/v3/blogs/1077219881104311123/posts?key=AIzaSyD0YC5GfFOWIN0iONA_XmXxrcakUt0eH68`)
+  .then(response => response.json())
+  .then(data => {
+    const main =  document.querySelector("main");
+    if (data.items && data.items.length > 0) {
+        for(let i = 0; i<data.items.length; i++){
+            const article = document.createElement("article");    
+            article.className="blog-article";   
+            const title = document.createElement("h2");    
+ 
+            title.textContent=(data.items[i].title);    
+            
+            const imageUrls = extractImageUrls(data.items[i].content);
+
+            if (imageUrls.length > 0) {
+                imageUrls.forEach(function (imageUrl) {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = imageUrl;
+                    imgElement.addEventListener('click', function() {
+                        fullImage(this.src);
+                    });
+
+                    article.append(imgElement);
+                })
+            }
+
+            const postText = removeHTMLTags(data.items[i].content);
+            const articleText = document.createElement("p")
+            article.append(title);
+            article.append(postText);
+            main.append(article);
+            
+        }
+
+    } else {        
+        console.log('No posts found.');
+    }   
+  })
+  .catch(error => console.error('Error fetching data:', error));
+
+function removeHTMLTags(html) {
+const doc = new DOMParser().parseFromString(html, 'text/html');
+return doc.body.textContent || "";
+}
+
+function extractImageUrls(html) {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const images = doc.body.querySelectorAll('img');
+    const imageUrls = Array.from(images).map(img => img.src);
+    return imageUrls;
+}
+
+function fullImage (alt){
+    const fullImage = document.querySelector(".full-image");
+    const fullImageContainer = document.querySelector(".full-container");
+
+    if(fullImageContainer.style.display!="flex"){
+        fullImage.src=alt;
+        fullImageContainer.style.display="flex";
+        fullImage.style.display="inline";
+        fullImageContainer.style.opacity = "0";
+        setTimeout(function () {
+        // Gradually increase opacity to 1 for fade-in effect
+
+        fullImage.style.transform="scale(1)";
+
+        fullImageContainer.style.opacity = "1";
+        }, 0);
+
+    } else{
+        fullImageContainer.style.opacity="0";
+        fullImage.style.transform="scale(0.5)";
+        setTimeout(function(){
+            fullImage.style.display="none";
+            fullImageContainer.style.display="none";
+
+        }, 200);
+
+    }
+
+    
+}
+</script>
