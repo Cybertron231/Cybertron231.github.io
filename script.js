@@ -30,6 +30,17 @@ const imageLinks = [
 
 ]
 
+const selectedImageFilenames = [
+    '64de9cb2a74ef.jpg', '646b0a293bc09.jpg', '649c8fd2eac14.jpg', '651df8e510cb7.jpg', '6403a8cb75442.jpg',
+    '6535cd63008ca.jpg', '6539a57bb92ee.jpg', '6561a6e71037c.jpg', '64111bfcabfda.jpg', '65346c8ab8987.jpg',
+    '65581f6744c5c.jpg', '643332a831fed.jpg', '64348ab852b4c.jpg', '650a3a63ac46f.jpg', '641a01a71e473.jpg',
+    '64ac859c82f1f.jpg', '64503c9a3c375.jpg'
+];
+
+const resultArray = imageFilenames.map(filename => selectedImageFilenames.includes(filename));
+
+let nsfw = true;
+
 function shuffleTwoArrays(array1, array2) {
     if (array1.length !== array2.length) {
       throw new Error("Arrays must have the same length");
@@ -41,6 +52,32 @@ function shuffleTwoArrays(array1, array2) {
       // Swap elements in both arrays
       [array1[i], array1[j]] = [array1[j], array1[i]];
       [array2[i], array2[j]] = [array2[j], array2[i]];
+    }
+}
+
+function toggleNSFW(){
+    const imgs= document.querySelectorAll(".logos-slide img");
+    const btn = document.querySelector("#nsfw");
+    nsfw=!nsfw;
+    if(!nsfw){
+        btn.style.borderColor = "lightgreen";
+        btn.style.boxShadow= "0 0 20px rgba(0, 255, 0, 0.75), inset 0 0 20px rgba(0, 255, 0, 0.75)";
+
+        for(let i = 0; i<selectedImageFilenames.length*2;i++){
+            const result = Array.from(imgs).find(element => element.src.includes(selectedImageFilenames[Math.floor(i/2)]) && element.style.display!="none");
+            if(result){
+                result.style.display="none";
+            }
+        }
+    }
+    else{
+        btn.style.borderColor = "red";
+        btn.style.boxShadow= "0 0 20px rgba(255, 0, 0, 0.75), inset 0 0 20px rgba(255, 0, 0, 0.75)";
+
+        for(let i = 0; i<imgs.length;i++){
+                imgs[i].style.display = "";
+
+        }
     }
 }
 
@@ -69,22 +106,6 @@ document.addEventListener("DOMContentLoaded", function () {
     var windowWidth = screen.width;
 
     var scaleFactor = windowWidth / 2048;
-
-    
-    
-    //document.querySelector("main").style.transform = "scale(" + scaleFactor + ")";
-    //document.querySelector(".sidebar").style.transform = "scale(" + scaleFactor + ")";
-    //document.querySelector(".sidebar").style.right = String(-400 * scaleFactor)+"px";
-    //document.querySelector(".sitelogo").style.transform = "scale(" + scaleFactor + ")";
-    /*
-    if(windowWidth<2048){
-        var currentRightValue = parseFloat(getComputedStyle(document.querySelector(".logos")).right);
-        let logos = document.querySelectorAll(".logos");
-        for(let i = 0; i<logos.length; i++){
-            logos[i].style.right = String(50 + 2048-windowWidth)+"px";
-        }
-    }
-    */
           
     const imageContainer = document.querySelectorAll('.logos-slide');
 
