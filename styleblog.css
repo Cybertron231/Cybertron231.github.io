@@ -8,10 +8,11 @@
   .background-image{
     position: fixed;
     top: 50vh;
-    left: 49vw;
+    left: 50vw;
     transform: translate(-50%, -50%);
     z-index: 0;
     filter:grayscale(100%);
+    transform-origin: center;
   
     height: 100vh;
     width: 101vw;
@@ -79,7 +80,9 @@
   .article-list article{
     display: flex;
     flex-direction: column;
-    height:80vh;
+    min-height:70vh;
+    height: fit-content;
+    width:65vh;
     padding:1%;
     border-radius: 1%;
 
@@ -97,6 +100,10 @@
     font-family: 'Poppins', sans-serif;
     
     background-color: rgb(32, 32, 32);
+  }
+
+  .article-list article p{
+    height:min-content;
   }
   
   .article-list article h2{

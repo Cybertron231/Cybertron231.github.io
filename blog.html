@@ -28,7 +28,7 @@
 const blogId = '1077219881104311123';
 
 // Fetch recent posts from the Blogger API
-fetch(`https://www.googleapis.com/blogger/v3/blogs/1077219881104311123/posts?key=AIzaSyD0YC5GfFOWIN0iONA_XmXxrcakUt0eH68`)
+fetch(`https://www.googleapis.com/blogger/v3/blogs/1077219881104311123/posts?key=AIzaSyA81_78PWoKiDpM9quKjia0rXwcmyL-faA`)
   .then(response => response.json())
   .then(data => {
     const main =  document.querySelector("main");
@@ -56,8 +56,9 @@ fetch(`https://www.googleapis.com/blogger/v3/blogs/1077219881104311123/posts?key
 
             const postText = removeHTMLTags(data.items[i].content);
             const articleText = document.createElement("p")
+            articleText.textContent=postText;
             article.append(title);
-            article.append(postText);
+            article.append(articleText);
             main.append(article);
             
         }
