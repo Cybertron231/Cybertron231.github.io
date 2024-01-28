@@ -125,6 +125,15 @@
     object-position: top center;
   }
 
+  .article-list iframe{
+    width:60vh;
+    height:35vh;
+    object-fit: cover;
+    cursor: pointer;
+    border:none;
+    object-position: top center;
+  }
+
   .full-container {
     position: fixed;
     top: 50vh;
