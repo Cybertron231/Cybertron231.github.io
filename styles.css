@@ -90,7 +90,7 @@
   .extras{
     display:flex;
     transform-origin: top left;
-    position:fixed;
+    position:absolute;
     z-index: 2;
     color:red;
     font-weight:bold;
@@ -100,9 +100,10 @@
     border-image: linear-gradient(to right, rgba(255,0,0,0), red 50%, rgba(255,0,0,0)) 1;
     /* Adjust the color values and percentage stops as needed */
     border-image-slice: 10;
-    top:12%;
+    top:6vw;
     left:3%;
     font-size: 1vw;
+    height:2vw;
     align-items: center;
     font-family: 'Poppins', sans-serif;
   }
