@@ -45,21 +45,36 @@ scene.add(topLight);
 const ambientLight = new THREE.AmbientLight(0x333333, objToRender === "dino" ? 5 : 1);
 scene.add(ambientLight);
 
-fetchFolderContents(`modmodels/ShenheDurga`, folder);
+fetchFolderContents(`modmodels/JeanSummer`, folder);
 
 export function changeModel(change){
   folder+=change;
   while(scene.children.length > 0){ 
     scene.remove(scene.children[0]); 
   }
-    //Add lights to the scene, so we can actually see the 3D model
-    const topLight = new THREE.DirectionalLight(0xffffff, 1); // (color, intensity)
-    topLight.position.set(250, 500, 1000) //top-left-ish
-    topLight.castShadow = true;
-    scene.add(topLight);
-  
-    const ambientLight = new THREE.AmbientLight(0x333333, objToRender === "dino" ? 5 : 1);
-    scene.add(ambientLight);
+  const last = document.querySelector(".minus")
+  const next = document.querySelector(".plus")
+
+
+  if(folder==0){
+    last.style.display="none";
+  } else{
+    last.style.display="";
+  }
+  if(folder==2){
+    next.style.display="none";
+  } else{
+    next.style.display="";
+
+  }
+  //Add lights to the scene, so we can actually see the 3D model
+  const topLight = new THREE.DirectionalLight(0xffffff, 1); // (color, intensity)
+  topLight.position.set(250, 500, 1000) //top-left-ish
+  topLight.castShadow = true;
+  scene.add(topLight);
+
+  const ambientLight = new THREE.AmbientLight(0x333333, objToRender === "dino" ? 5 : 1);
+  scene.add(ambientLight);
   fetchFolderContents(`modmodels`, folder, false);
 
 }
@@ -136,7 +151,7 @@ function fetchFolderContents(folderPath, searchFolder, run){
       } else if (item.type === 'dir') {
         // For subfolders, recursively fetch their contents
         if(folderNumber==searchFolder && run==false){
-          console.log(item.url);
+         // console.log(item.url);
           run=true;
           fetchFolderContents("modmodels/"+item.name, searchFolder, run);
 
@@ -158,8 +173,8 @@ function fetchFolderContents(folderPath, searchFolder, run){
   //Set how far the camera will be from the 3D model
   camera.position.z=1.25;
   camera.position.y=0.5;
-  console.log(camera.position);
-  console.log(camera.rotation);
+  //console.log(camera.position);
+ // console.log(camera.rotation);
 
 
 
