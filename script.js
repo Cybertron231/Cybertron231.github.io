@@ -58,10 +58,13 @@ function shuffleTwoArrays(array1, array2) {
 function toggleNSFW(){
     const imgs= document.querySelectorAll(".logos-slide img");
     const btn = document.querySelector("#nsfw");
+    const render = document.querySelector("#rendering");
     nsfw=!nsfw;
     if(!nsfw){
         btn.style.borderColor = "lightgreen";
         btn.style.boxShadow= "0 0 20px rgba(0, 255, 0, 0.75), inset 0 0 20px rgba(0, 255, 0, 0.75)";
+
+        render.style.display="none";
 
         for(let i = 0; i<selectedImageFilenames.length*2;i++){
             const result = Array.from(imgs).find(element => element.src.includes(selectedImageFilenames[Math.floor(i/2)]) && element.style.display!="none");
@@ -71,6 +74,7 @@ function toggleNSFW(){
         }
     }
     else{
+        render.style.display="";
         btn.style.borderColor = "red";
         btn.style.boxShadow= "0 0 20px rgba(255, 0, 0, 0.75), inset 0 0 20px rgba(255, 0, 0, 0.75)";
 
@@ -135,6 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
         imgs[i].style.height = 161*scaleFactor + "px";
     }
     */
+   toggleNSFW();
 
     
 });
