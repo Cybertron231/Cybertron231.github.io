@@ -29,6 +29,9 @@ let objToRender = 'dino';
 
 let folder = 0;
 
+let wireframe=false;
+
+
 //Instantiate a loader for the .gltf file
 const fbxLoader = new FBXLoader();
 
@@ -78,6 +81,25 @@ export function changeModel(change){
   fetchFolderContents(`modmodels`, folder, false);
 
 }
+
+
+export function changeWireframe(){
+  wireframe=!wireframe;
+  while(scene.children.length > 0){ 
+    scene.remove(scene.children[0]); 
+  }
+  //Add lights to the scene, so we can actually see the 3D model
+  const topLight = new THREE.DirectionalLight(0xffffff, 1); // (color, intensity)
+  topLight.position.set(250, 500, 1000) //top-left-ish
+  topLight.castShadow = true;
+  scene.add(topLight);
+
+  const ambientLight = new THREE.AmbientLight(0x333333, objToRender === "dino" ? 5 : 1);
+  scene.add(ambientLight);
+  fetchFolderContents(`modmodels`, folder, false);
+}
+
+
 function fetchFolderContents(folderPath, searchFolder, run){
   let folderNumber = 0;
 
@@ -94,59 +116,74 @@ function fetchFolderContents(folderPath, searchFolder, run){
           object.traverse(function (child) {
             object.scale.set(0.01, 0.01, 0.01);
             if (child.isMesh) {
-              // basic monochromatic energy preservation
-              const textureLoader = new THREE.TextureLoader();
-              const diffuseColor = new THREE.Color(0.6, 0.6, 0.6);
-              //let colorTexture = textureLoader.load('models/jean/Avatar_Lady_Sword_Qin_Tex_Body_Diffuse.png') // Replace with the actual path to your texture
-              let newMat;
-              if(Array.isArray(child.material)){
-                let i =0;
-                child.material.forEach(function (material) {
+              if(!wireframe){
+                // basic monochromatic energy preservation
+                const textureLoader = new THREE.TextureLoader();
+                const diffuseColor = new THREE.Color(0.6, 0.6, 0.6);
+                //let colorTexture = textureLoader.load('models/jean/Avatar_Lady_Sword_Qin_Tex_Body_Diffuse.png') // Replace with the actual path to your texture
+                let newMat;
+                if(Array.isArray(child.material)){
+                  let i =0;
+                  child.material.forEach(function (material) {
+                    newMat = new THREE.MeshToonMaterial( {
+                      color: diffuseColor,
+                      map: material.map, // Set the texture for color
+                      transparent: true,
+                      side: THREE.DoubleSide,
+                      gradientMap: null
+                    } );
+                    material = newMat;
+        
+                    child.material[i] = newMat;
+                    i++;
+        
+        
+        
+                  });
+                }else{
                   newMat = new THREE.MeshToonMaterial( {
                     color: diffuseColor,
-                    map: material.map, // Set the texture for color
-                    transparent: true,
-                    side: THREE.DoubleSide,
+                    map: child.material.map, // Set the texture for color
                     gradientMap: null
                   } );
-                  material = newMat;
-      
-                  child.material[i] = newMat;
-                  i++;
-      
-      
-      
-                });
-              }else{
-                newMat = new THREE.MeshToonMaterial( {
-                  color: diffuseColor,
-                  map: child.material.map, // Set the texture for color
-                  gradientMap: null
-                } );
-                child.material = newMat;
-      
+                  child.material = newMat;
+        
+                }
+        
+                
+                switch (child.name) {
+                  case 'EffectMesh':
+                      // Handle EffectMesh
+                      child.visible = false;
+                      break;
+                  case 'EyeStar':
+                      // Handle EyeStar
+                      child.visible = false;
+                      break;
+                  default:
+                      // Default case if the name doesn't match any of the cases
+                      break;
+                }
+
+              } else{
+                var geo = new THREE.EdgesGeometry( child.geometry ); // or WireframeGeometry( geometry )
+
+                var mat = new THREE.LineBasicMaterial( { color: 0xdddddd, linewidth: 1 } );
+
+                var wireframe2 = new THREE.LineSegments( geo, mat );
+                wireframe2.position.y=-1;
+                scene.add( wireframe2 )
               }
-      
-              
-              switch (child.name) {
-                case 'EffectMesh':
-                    // Handle EffectMesh
-                    child.visible = false;
-                    break;
-                case 'EyeStar':
-                    // Handle EyeStar
-                    child.visible = false;
-                    break;
-                default:
-                    // Default case if the name doesn't match any of the cases
-                    break;
-            }
+
       
       
             }
           });
-          object.position.y=-1;
-          scene.add(object);
+          if(!wireframe){
+            object.position.y=-1;
+            scene.add(object);
+          }
+
         });
       } else if (item.type === 'dir') {
         // For subfolders, recursively fetch their contents

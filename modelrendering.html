@@ -23,6 +23,7 @@
       <div id="container3D"></div>
       <button class="minus" id="-" style="display: none; background: none; cursor: pointer; border: none; position: fixed; transform-origin: center; top:50%; width:3%; height:auto;"><img src="https://www.nicepng.com/png/full/47-473745_arrow-simple-left-arrow-simple-left-arrow-simple.png" style="width: 100%; filter:invert(1.0);"></button>
       <button class="plus" id="+" style="background: none; z-index:25; cursor: pointer; border: none; position: fixed; transform-origin: center; right:0;top:50%; width:3%; height:auto;"><img src="https://www.nicepng.com/png/full/47-473745_arrow-simple-left-arrow-simple-left-arrow-simple.png" style="width: 100%; filter:invert(1.0); transform: scaleX(-1);"></button>
+      <button class="wireframe" id="Wireframe">Wireframe</button>
 
     </main>
 
@@ -31,6 +32,7 @@
     <script type="module">
       // Import the function from the module
       import { changeModel } from './modelrendering.js';
+      import { changeWireframe } from './modelrendering.js';
     
       // Get a reference to the button
       const myButton = document.getElementById('+');
@@ -45,12 +47,21 @@
     
       const myButton2 = document.getElementById('-');
     
-    // Add a click event listener
-    myButton2.addEventListener('click', function() {
-        // Call the function when the button is clicked
-        console.log("done");
-        changeModel(-1); // Example: pass some parameter to the function
-    });
+      // Add a click event listener
+      myButton2.addEventListener('click', function() {
+          // Call the function when the button is clicked
+          console.log("done");
+          changeModel(-1); // Example: pass some parameter to the function
+      });
+
+      const wireFrameButton = document.getElementById('Wireframe');
+    
+      // Add a click event listener
+      wireFrameButton.addEventListener('click', function() {
+          // Call the function when the button is clicked
+          console.log("done");
+          changeWireframe(); // Example: pass some parameter to the function
+      });
     
     
     </script>

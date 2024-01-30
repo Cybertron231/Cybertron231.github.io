@@ -48,6 +48,37 @@ header h1 {
 
 }
 
+.wireframe{
+  height:2vw;
+  position:absolute;
+  top:85%;
+  border-radius: 10px;
+  background:none;
+  border-color: red;
+  text-shadow: 1px 1px 2px red, 0 0 1em red, 0 0 0.2em red;
+  color:aliceblue;
+  font-size: 0.75vw;
+  font-style:italic;
+  font-weight: bolder;
+  margin: 5% 0%;
+  left:1%;
+  box-shadow: 
+  0 0 20px rgba(255, 0, 0, 0.75), /* outer shadow */
+  inset 0 0 20px rgba(255, 0, 0, 0.75); /* inner shadow */
+  width:7vw;
+  cursor:pointer;
+  transition-duration: 0.2s;
+  transition: opacity 1s ease, box-shadow 0.5s ease, border-color 0.5s ease;
+}
+
+.wireframe:hover{
+  box-shadow: 
+  0 0 3vw rgba(255, 0, 0, 0.75), /* outer shadow */
+  inset 0 0 3vw rgba(255, 0, 0, 0.75); /* inner shadow */
+  transition-duration: 0.2s;
+  transform:scale(1.01);
+}
+
 .sitelogo h1 a{
   text-decoration: none;
   color:white;
