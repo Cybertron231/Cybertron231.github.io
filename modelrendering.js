@@ -45,7 +45,7 @@ scene.add(topLight);
 const ambientLight = new THREE.AmbientLight(0x333333, objToRender === "dino" ? 5 : 1);
 scene.add(ambientLight);
 
-fetchFolderContents(`modmodels/JeanSummer`, folder);
+fetchFolderContents(`modmodels/ExquisiteNingguang`, folder);
 
 export function changeModel(change){
   folder+=change;
@@ -61,7 +61,7 @@ export function changeModel(change){
   } else{
     last.style.display="";
   }
-  if(folder==2){
+  if(folder==3){
     next.style.display="none";
   } else{
     next.style.display="";
